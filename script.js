@@ -30,15 +30,16 @@ function createGrid(size){
     }
 }
 
-function clearGrid(item){
-    item.forEach((square) => {
+function clearGrid(){
+    squares.forEach((square) => {
         grid.removeChild(square);
-        console.log("removed");
     });
 }
-const btn = document.querySelector(".btn");
 
-btn.addEventListener("click", ()=> {
+
+const adjustBtn = document.querySelector("#adjust-grid");
+
+adjustBtn.addEventListener("click", ()=> {
     // prompt for grid size
     let gridSize = 0;
     while(gridSize > 100 || gridSize <= 0){
@@ -46,10 +47,7 @@ btn.addEventListener("click", ()=> {
     }
     
     // clear the grid
-    squares.forEach((square) => {
-        grid.removeChild(square);
-        console.log("removed");
-    });
+    clearGrid();
 
     // create new grid
     createGrid(gridSize);
@@ -59,4 +57,12 @@ btn.addEventListener("click", ()=> {
     let size = (496 - gridSize)/gridSize;
 
     squareListener(squares, size);
+});
+
+const clearBtn = document.querySelector("#clear");
+
+clearBtn.addEventListener("click", () => {
+    squares.forEach((square) => {
+        square.style.cssText ="background-color: white";
+    });
 });
