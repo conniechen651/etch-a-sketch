@@ -24,44 +24,44 @@ adjustBtn.addEventListener("click", ()=> {
 
     let size = (496 - gridSize)/gridSize;
 
-    squareListener(squares, size);
+    squareListener(size);
 });
 
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", () => {
     squares.forEach((square) => {
-        square.style.cssText ="background-color: white";
+        square.style.cssText =`background-color: white; width: ${document.querySelector(".square").style.width};`;
     });
 });
 
 let colorBtn = document.querySelector("#color");
 colorBtn.addEventListener("click", ()=> {
     if (colorBtn.textContent === "Make Rainbow"){
-        squareListenerColor(squares, document.querySelector(".square").style.width);
+        squareListenerColor();
         colorBtn.textContent = "Make B&W";
     } else {
-        squareListener(squares, document.querySelector(".square").style.width);
+        squareListener();
         colorBtn.textContent = "Make Rainbow";
     }
     
 });
 
 // functions ---------------------
-function squareListener(item, size){
-    item.forEach((square) => {
+function squareListener(){
+    squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.style.cssText = `background-color: rgb(100, 100, 100); width: ${size}px`;
+            square.style.cssText = `background-color: rgb(100, 100, 100); width: ${document.querySelector(".square").style.width};`;
         });
     });
 }
 
-function squareListenerColor(item, size){
-    item.forEach((square) => {
+function squareListenerColor(){
+    squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
             let num1 = Math.floor(Math.random() * 256);
             let num2 = Math.floor(Math.random() * 256);
             let num3 = Math.floor(Math.random() * 256);
-            square.style.cssText = `background-color: rgb(${num1}, ${num2}, ${num3}); width: ${size}px`;
+            square.style.cssText = `background-color: rgb(${num1}, ${num2}, ${num3}); width: ${document.querySelector(".square").style.width};`;
         });
     });
 }
