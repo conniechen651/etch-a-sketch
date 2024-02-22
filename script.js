@@ -25,6 +25,7 @@ adjustBtn.addEventListener("click", ()=> {
     let size = (496 - gridSize)/gridSize;
 
     squareListener(size);
+    colorBtn.textContent = "Make Rainbow";
 });
 
 // button to clear the canvas
