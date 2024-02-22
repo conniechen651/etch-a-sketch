@@ -53,7 +53,6 @@ function squareListener(){
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
             square.style.cssText = `background-color: rgb(100, 100, 100); width: ${square.style.width};`;
-            square.setAttribute("opacity", opacity);
         });
     });
 }
