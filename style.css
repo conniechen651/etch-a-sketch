@@ -15,12 +15,13 @@ h1 {
 
 button{
     background-color: white;
-    border-color: black;
+    border-color: red;
     border-width: 1px;
     border-radius: 10px;
     height: 40px;
     width: 130px;
     font-size: 14px;
+    color: red;
     margin-bottom: 25px;
 }
 

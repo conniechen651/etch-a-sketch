@@ -2,10 +2,10 @@ const grid = document.querySelector("#grid");
 
 // default grid
 createGrid(16);
-
 let squares = document.querySelectorAll(".square");
 squareListener(squares, 30);
 
+// button to adjust grid size
 const adjustBtn = document.querySelector("#adjust-grid");
 adjustBtn.addEventListener("click", ()=> {
     // prompt for grid size
@@ -27,13 +27,15 @@ adjustBtn.addEventListener("click", ()=> {
     squareListener(size);
 });
 
+// button to clear the canvas
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", () => {
     squares.forEach((square) => {
-        square.style.cssText =`background-color: white; width: ${document.querySelector(".square").style.width};`;
+        square.style.cssText =`background-color: white; width: ${square.style.width};`;
     });
 });
 
+// button to change color mode
 let colorBtn = document.querySelector("#color");
 colorBtn.addEventListener("click", ()=> {
     if (colorBtn.textContent === "Make Rainbow"){
@@ -43,14 +45,14 @@ colorBtn.addEventListener("click", ()=> {
         squareListener();
         colorBtn.textContent = "Make Rainbow";
     }
-    
 });
 
-// functions ---------------------
+// ------------------- functions ---------------------
 function squareListener(){
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.style.cssText = `background-color: rgb(100, 100, 100); width: ${document.querySelector(".square").style.width};`;
+            square.style.cssText = `background-color: rgb(100, 100, 100); width: ${square.style.width};`;
+            square.setAttribute("opacity", opacity);
         });
     });
 }
@@ -61,7 +63,7 @@ function squareListenerColor(){
             let num1 = Math.floor(Math.random() * 256);
             let num2 = Math.floor(Math.random() * 256);
             let num3 = Math.floor(Math.random() * 256);
-            square.style.cssText = `background-color: rgb(${num1}, ${num2}, ${num3}); width: ${document.querySelector(".square").style.width};`;
+            square.style.cssText = `background-color: rgb(${num1}, ${num2}, ${num3}); width: ${square.style.width};`;
         });
     });
 }
